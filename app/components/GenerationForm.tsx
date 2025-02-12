@@ -70,8 +70,6 @@ export default function GenerationForm() {
       return;
     }
 
-    // console.log("Received imageId:", imageId);
-    
     setLoading(true);
     setError(null);
     setStatus('Generating video... This may take few seconds');

@@ -23,7 +23,6 @@ export async function generateImage(prompt: string) {
     }
 
     const data = await response.json();
-    console.log('Generation response:', data);
     return data;
   } catch (error) {
     console.error('Generate image error:', error);
@@ -51,7 +50,6 @@ export async function generateVideo(generationId: string) {
     }
 
     const data = await response.json();
-    console.log('Video generation response:', data);
     return data;
   } catch (error) {
     console.error('Generate video error:', error);
@@ -75,7 +73,6 @@ export async function getGenerationById(generationId: string) {
     }
 
     const data = await response.json();
-    console.log('Status check response:', data);
     return data;
   } catch (error) {
     console.error('Get generation status error:', error);
@@ -98,20 +95,9 @@ export async function getVideoStatus(videoId: string) {
     }
 
     const data = await response.json();
-    console.log('Video status response:', data);
     return data;
   } catch (error) {
     console.error('Get video status error:', error);
     throw error;
   }
 }
-
-export async function getVideoGenerationById(generationId: string) {
-  const response = await fetch(`${LEONARDO_API_BASE}/generations-video/${generationId}`, {
-    headers: {
-      'Authorization': `Bearer ${process.env.LEONARDO_API_KEY}`,
-    },
-  });
-
-  return response.json();
-} 
